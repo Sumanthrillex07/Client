@@ -1,9 +1,14 @@
+
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+// import onlineIcon from "./icons/closeIcon.png";
+
+let room;
 
 const Chat = ({ socket, name, room }) => {
   const [msg, setMsg] = useState("");
   const [msgList, setMsgList] = useState([]);
+  const [users, setUsers] = useState([]);
   const sendMsg = async () => {
     if (msg !== "") {
       const msgData = {
@@ -15,8 +20,10 @@ const Chat = ({ socket, name, room }) => {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
+      room = msgData.room;
       await socket.emit("send", msgData);
       setMsgList((list) => [...list, msgData]);
+      
       setMsg("");
     }
   };
@@ -24,13 +31,17 @@ const Chat = ({ socket, name, room }) => {
     socket.on("receive", async (data) => {
       //   console.log(data);
       await setMsgList((list) => [...list, data]);
+    //   await setUsers((list) => [...list, data.author]);
     });
     return () => socket.off("receive");
   }, [socket]);
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <p>Live chat</p>
+        <p>ROOM: {room}</p>
+        <a href="/">
+          X
+        </a>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
