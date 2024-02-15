@@ -1,10 +1,10 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+  background: #fff;
   color: #212121;
   font-family: "Open Sans", sans-serif;
-  display: grid; 
+  display: grid;
   place-items: center;
 }
 body {
@@ -53,7 +53,6 @@ body {
 .chat-window {
   width: 300px;
   height: 420px;
-  background-color: #ffffff;
 }
 
 .chat-window p {
@@ -62,9 +61,9 @@ body {
 .chat-window .chat-header {
   height: 45px;
   border-radius: 6px;
-  background: #000000;
+  background: #263238;
   position: relative;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 .chat-window .chat-header p {
   display: block;
@@ -72,23 +71,12 @@ body {
   color: #fff;
   font-weight: 700;
   line-height: 45px;
-  /* justify-content: flex-end; */
 }
-.chat-window .chat-header a {
-  display: block;
-  color: #ffffff;
-  font-weight: 700;
-  cursor: pointer;
-  line-height: 45px;
-  text-decoration: none;
-  padding: 0em 1em 0 2em;
-}
-
 
 .chat-window .chat-body {
   height: calc(450px - (45px + 70px));
   border: 1px solid #263238;
-  background: #a1cbea;
+  background: #fff;
 
   position: relative;
 }
@@ -125,9 +113,6 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
 }
-/* .onlineImg{
-  margin: 5%;
-} */
 
 #you {
   justify-content: flex-start;
@@ -147,7 +132,7 @@ body {
 }
 
 #other .msg-cnt {
-  justify-content: flex-start;
+  justify-content: flex-end;
   background-color: cornflowerblue;
 }
 
